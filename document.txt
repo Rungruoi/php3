@@ -1,0 +1,9 @@
+php artisan key: generate
+php xdebug
+categori 
+id
+name 
+desc
+products
+id
+
