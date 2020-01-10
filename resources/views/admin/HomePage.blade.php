@@ -25,6 +25,7 @@
             <tr>
               <th>ID</th>
               <th>Title</th>
+              <th>Cate</th>
               <th>Author</th>
               <th>Image</th>
               <th>Ngày Đăng</th>
@@ -38,7 +39,7 @@
                 <tr>
                     <td>{{$item->id}}</td>
                     <td>{{$item->title}}</td>
-                   
+                   <td>{{$item->categorysp['name']}}</td>
                   <td>{{ $item->auther }}</td>
                     <td>
                         <img src="{{$item->image}}" width="100" >

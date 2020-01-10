@@ -8,8 +8,8 @@ class Product extends Model
 {
     protected $table = 'product';
 
-    public function category(){
-    	return $this->belongsTo('App\Category', 'pro_id', 'id');	    	
+    public function categorysp(){
+    	return $this->belongsTo('App\Category','pro_id', 'id');	    	
     	
     }	    
      protected $fillable = [

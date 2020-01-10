@@ -5,14 +5,14 @@
 	@csrf
 	<div class="col-md-6">
 		<div class="form-group">
-		<label for="">Tiêu đề</label>
+		<label for="">Tiêu đề*</label>
 		<input type="text" name="title" class="form-control" value="{{ $post->title }}" placeholder="">
 		@if( $errors->first('title'))
 		<span class="text-danger">{{ $errors->first('title')}}</span>
 		@endif
 		</div>
 		<div class="form-group">
-		<label for="">Tác giả</label>
+		<label for="">Tác giả*</label>
 				<input type="text" name="auther" class="form-control" value="{{ $post->auther }}">
 				@if( $errors->first('auther'))
 		<span class="text-danger">{{ $errors->first('auther')}}</span>
@@ -62,7 +62,7 @@
  		</div>
  		<div class="col-md-12">	
 		<div class="form-group">
-		<label for="">Nội dung</label>
+		<label for="">Nội dung*</label>
 		<textarea name="content" rows="10" id="editor1" class="form-control">{{ $post->content }}</textarea>
 		@if( $errors->first('content'))
 		<span class="text-danger">{{ $errors->first('content')}}</span>
@@ -82,17 +82,5 @@
 		</div>
 
 </form>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('[name="detail"]').wysihtml5();
-    var img = document.querySelector('[name="image"]');
-    img.onchange = function(){
-      var anh = this.files[0];
-      if(anh == undefined){
-        document.querySelector('#showImage').src ="{{ $post->image }}";
-      }else{
-        getBase64(anh, '#showImage');
-      }
-    }
-</script>
+
 @endsection

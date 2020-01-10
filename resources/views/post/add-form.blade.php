@@ -5,14 +5,14 @@
 	@csrf
 	<div class="col-md-6">
 	<div class="form-group">
-		<label for="">Tiêu đề</label>
+		<label for="">Tiêu đề*</label>
 		<input type="text" name="title" class="form-control" value="{{ old('title') }}" placeholder="">
 		@if( $errors->first('title'))
 		<span class="text-danger">{{ $errors->first('title')}}</span>
 		@endif
 	</div>	
 <div class="form-group">
-		<label for="">Tác giả</label>
+		<label for="">Tác giả*</label>
 				<input type="text" name="auther" class="form-control" value="{{ old('auther') }}">
 				@if( $errors->first('auther'))
 		<span class="text-danger">{{ $errors->first('auther')}}</span>
@@ -60,7 +60,7 @@
 	</div>	
 	<div class="col-md-12">	
 		<div class="form-group">
-		<label for="">Nội dung</label>
+		<label for="">Nội dung*</label>
 		<textarea name="content" rows="10" class="form-control" id="editor1">{{ old('content') }}</textarea>
 		@if( $errors->first('content'))
 		<span class="text-danger">{{ $errors->first('content')}}</span>

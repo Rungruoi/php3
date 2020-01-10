@@ -26,7 +26,7 @@
               <th>Id</th>
               <th>Name</th>
               <th>Price</th>
-              
+              <th>cate</th>
               <th>slug</th>
               <th>Description</th>
               <th>Image</th>
@@ -38,21 +38,20 @@
             @foreach($pro as $key => $item)
             <tr>
               <td>{{ $item->id }}</td>
-              <td>{{$item->name}}</td>
+              <td>{{ $item->name}}</td>
               <td>{{ $item->price }}</td>
-            
-              <td>{{$item->slug}}</td>
-              <td>{{ substr($item->description,-150)}}</td>
+              <td>{{ $item->categorysp->name}}</td>
+              <td>{{ substr($item->slug,-100)}}</td>
+              <td>{!! substr($item->description,-150)!!}</td>
               <td>
                 <img src="{{$item->feature_image}}" width="100" >
               </td>
               <td>@if($item->status==1)
-                <a class="btn btn-xs btn-info">
+              
                         Hiện
-                      </a>
+                    
                 @else
-                <a class="btn btn-xs btn-warning">
-                Ẩn</a>
+                              Ẩn
               @endif</td>
               <td>
                 <a href="{{route('product.edit', 

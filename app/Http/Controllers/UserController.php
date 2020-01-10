@@ -16,11 +16,11 @@ class UserController extends Controller
 
 		$kw=$request->keyword;
 		if(!$request->has('keyword') || empty($kw)){
-			$Username=User::where('role','<>',900)->orderBy('id','DESC')->paginate(9);
+			$Username=User::where('role','<>',900)->paginate(9);
 		}else{
-			$Username=User::where('name','like',"%$kw%")->orderBy('id','DESC')->paginate(9);
+			$Username=User::where([['name','like',"%$kw%"],['role','<>',900]])->orderBy('id','DESC')->paginate(5);
             //phân trang chi tiết
-			$Username->widthPath("admin/user/?keyword=$kw")->orderBy('id','DESC')->paginate(9);
+			$Username->withPath("admin/user/?keyword=$kw");
 		}
 
 		return view('user.user',['users'=>$Username]);

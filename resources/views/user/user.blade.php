@@ -44,7 +44,7 @@
             <td>{{$item->name}}</td>
 
             <td>{{$item->email}}</td>
-            <td>{{ substr($item->address, -100)}}
+            <td>{!! substr($item->address, -100)!!}
             </td>
             <td>{{"0". $item->numberphone }}</td>
             <td>@if($item->role==500)

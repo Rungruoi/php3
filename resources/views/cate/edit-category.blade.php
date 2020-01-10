@@ -6,15 +6,15 @@
 	<div class="col-md-6">
 	<div class="form-group">
 		<input type="hidden" name="id" value="{{ $cate->id }}">
-		<label for="">Tên danh mục-(Name Cate)</label>
+		<label for="">Tên danh mục-(Name Cate*)</label>
 		<input type="text" name="name" class="form-control" value="{{ $cate->name}}" placeholder="">
-		@if( $errors->first('title'))
-		<span class="text-danger">{{ $errors->first('title')}}</span>
+		@if( $errors->first('name'))
+		<span class="text-danger">{{ $errors->first('name')}}</span>
 		@endif
 	</div>	
 	
 	<div class="form-group">
-		<label for="">Mô tả-(Description)</label>
+		<label for="">Mô tả-(Description*)</label>
 		<textarea name="description" rows="10" id="editor1" class="form-control">{{ $cate->description }}</textarea>
 		@if( $errors->first('description'))
 		<span class="text-danger">{{ $errors->first('description')}}</span>

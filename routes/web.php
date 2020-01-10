@@ -31,8 +31,7 @@ Route::get('auth/google','Auth\LoginController@ToProvider')->name('login/google'
 Route::get('auth/google/callback','Auth\LoginController@Callback');
 Route::get('logout',function(){
 	Auth::logout();
-	Session::flush();
-	
+	Session::flush();	
 	return redirect()->route('homepage');
 })->name('logout');
 

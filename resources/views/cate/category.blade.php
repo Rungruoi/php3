@@ -5,7 +5,7 @@
     <form action="{{ route('category.add') }}" method="post" enctype="multipart/form-data" novalidate>
       @csrf
       <div class="form-group">
-        <label for="">Tên danh mục-(Name Cate)</label>
+        <label for="">Tên danh mục-(Name Cate*)</label>
         <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="">
         @if( $errors->first('name'))
         <span class="text-danger">{{ $errors->first('name')}}</span>
@@ -13,7 +13,7 @@
       </div>  
       
       <div class="form-group">
-        <label for="">Mô tả-(Description)</label>
+        <label for="">Mô tả-(Description*)</label>
         <textarea name="description" rows="10" class="form-control" id="editor1">{{ old('description') }}</textarea>
         @if( $errors->first('description'))
         <span class="text-danger">{{ $errors->first('description')}}</span>

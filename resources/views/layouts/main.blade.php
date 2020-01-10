@@ -230,9 +230,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              @if(Auth::check())
-              <span class="hidden-xs">{{ Auth::user()->name }}</span>
-              @endif
+              
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->

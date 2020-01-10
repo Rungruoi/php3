@@ -11,6 +11,7 @@ use App\Category;
 use Carbon\Carbon;
 
 
+
 class CategoryController extends Controller
 {
    public function categories(Request $request){
@@ -32,12 +33,15 @@ class CategoryController extends Controller
     DB::beginTransaction();
     try{
         $model=Category::find($id);
-        $id;
-        $pro=Post::all()->where('cate_id','=','$id')->count();
-        $product=Product::where('pro_id', '=', '5')->count();
-
-        dd($product);
         if($model){
+            $product=$model->product;
+            foreach($product as $pro){
+              Product::find($pro->id)->delete();
+            }
+            $post=$model->post;
+            foreach ($post as $p) {
+              Post::find($p->id)->delete();
+            }
             
             $model->delete();
            // $pro-> delete();
@@ -51,7 +55,7 @@ class CategoryController extends Controller
     }
    
    public function saveAdd(AddCateRequest $request){
-  
+    
     $model=new Category;
     $model->fill($request->all());
     DB::beginTransaction();
@@ -72,11 +76,12 @@ class CategoryController extends Controller
    }
    public function saveedit(Request $request,$id){
     $validatedData = $request->validate([
-        'name' => 'required|unique:categories|max:16',
-        'description' => 'required',
+        'name' =>'required|max:16|unique:categories,name,'.$id,
+        'description' =>'required',
     ],
     [
-
+      'name.required'=>"Tên danh mục không được để trống",
+      'name.unique'=>"Tên danh mục đã tồn tại",
       'description.required'=>"Nhập mô tả danh mục",
     ]
   );

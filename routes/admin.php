@@ -1,6 +1,7 @@
 <?php
    
 Route::group(['middleware'=>'auth'],function(){
+	
 	Route::get('/','PostsController@homepage')->name('homepage');
 	Route::get('product','ProductsController@products')->name('products');
 	Route::get('user-profile/{id}','UserController@editprofile')->name('user.editprofile');

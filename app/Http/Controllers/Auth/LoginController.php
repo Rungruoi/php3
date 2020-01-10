@@ -77,6 +77,7 @@ public function handleProviderCallback()
         $user->role="1";
         $user->provider_id=$userSocial->getId();
         $user->provider='facebook';
+        $user->email_verified_at="2019-09-20";
         $user->save();
         Auth::login($user);
         return redirect()->route('homepage');
